@@ -1,4 +1,4 @@
-package com.github.suzumiyaaoba.colors;
+package com.github.suzumiyaaoba.colors4j;
 
 import java.util.function.BiFunction;
 import java.util.function.UnaryOperator;
