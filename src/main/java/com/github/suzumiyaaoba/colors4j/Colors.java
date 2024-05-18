@@ -7,7 +7,9 @@ import java.util.function.UnaryOperator;
  * Colors class.
  *
  * <p>Provides ANSI escape sequences for text formatting.
- * <p>See <a href="https://en.wikipedia.org/wiki/ANSI_escape_code">ANSI escape code</a> for more information.
+ *
+ * <p>See <a href="https://en.wikipedia.org/wiki/ANSI_escape_code">ANSI escape code</a> for more
+ * information.
  */
 public class Colors {
 
@@ -47,7 +49,9 @@ public class Colors {
    */
   public static Colors createColors(boolean isColorSupported) {
     BiFunction<String, String, UnaryOperator<String>> init =
-        (open, close) -> Utils.format(open, close, open);
+        isColorSupported
+            ? (open, close) -> Utils.format(open, close, open)
+            : (open, close) -> UnaryOperator.identity();
 
     return new Colors()
         .setColorSupported(isColorSupported)
