@@ -2,10 +2,13 @@ plugins {
     id 'java'
     id 'checkstyle'
     id "com.diffplug.spotless" version "6.25.0"
+
+    id 'maven-publish'
+    id 'cl.franciscosolis.sonatype-central-upload' version "1.0.3"
 }
 
-group = 'com.github.suzumiyaaoba'
-version = '1.0-SNAPSHOT'
+group = 'io.github.suzumiyaaoba'
+version = '0.0.1-SNAPSHOT'
 
 repositories {
     mavenCentral()
@@ -15,6 +18,11 @@ dependencies {
     testImplementation platform('org.junit:junit-bom:5.10.0')
     testImplementation 'org.junit.jupiter:junit-jupiter'
     testImplementation 'org.assertj:assertj-core:3.25.3'
+}
+
+java {
+    withSourcesJar()
+    withJavadocJar()
 }
 
 test {
@@ -32,5 +40,18 @@ spotless {
         cleanthat()
 
         googleJavaFormat()
+    }
+}
+
+publishing {
+    repositories {
+        maven {
+            name = "colors4j"
+            url = "https://github.com/SuzumiyaAoba/colors4j"
+            credentials {
+                username = System.getenv("MAVEN_USERNAME")
+                password = System.getenv("MAVEN_PASSWORD")
+            }
+        }
     }
 }
