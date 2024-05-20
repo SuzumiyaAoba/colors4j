@@ -43,15 +43,6 @@ spotless {
 }
 
 publishing {
-    publications {
-        maven(MavenPublication) {
-            groupId = project.group
-            artifactId = "colors4j"
-            version = project.version
-
-            from components.java
-        }
-    }
 
     repositories {
         maven {
@@ -63,4 +54,41 @@ publishing {
             }
         }
     }
+
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+
+            pom {
+                groupId = project.group
+                name = 'colors4j'
+                description = ''
+                url = 'https://github.com/SuzumiyaAoba/colors4j'
+                packaging = 'jar'
+
+                licenses {
+                    license {
+                        name = 'ISC License'
+                        url = 'https://opensource.org/license/isc-license-txt'
+                    }
+                }
+
+                scm {
+                    url = 'https://github.com/SuzumiyaAoba/colors4j'
+                    connection = 'scm:git://github.com:SuzumiyaAoba/colors4j.git'
+                    developerConnection = 'scm:git://github.com:SuzumiyaAoba/colors4j.git'
+                }
+
+                developers {
+                    developer {
+                        id = 'SuzumiyaAoba'
+                        name = 'Aoba Suzumiya'
+                        email = 'SuzumiyaAoba@gmail.com'
+                        organizationUrl = 'https://SuzumiyaAoba.github.io/'
+                    }
+                }
+            }
+        }
+    }
 }
+
