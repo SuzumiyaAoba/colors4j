@@ -4,7 +4,6 @@ plugins {
     id "com.diffplug.spotless" version "6.25.0"
 
     id 'maven-publish'
-    id 'cl.franciscosolis.sonatype-central-upload' version "1.0.3"
 }
 
 group = 'io.github.suzumiyaaoba'
@@ -44,9 +43,19 @@ spotless {
 }
 
 publishing {
+    publications {
+        maven(MavenPublication) {
+            groupId = project.group
+            artifactId = "colors4j"
+            version = project.version
+
+            from components.java
+        }
+    }
+
     repositories {
         maven {
-            name = "colors4j"
+            name = "OSSRH"
             url = "https://github.com/SuzumiyaAoba/colors4j"
             credentials {
                 username = System.getenv("MAVEN_USERNAME")
