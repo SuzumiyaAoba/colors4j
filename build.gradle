@@ -95,8 +95,18 @@ publishing {
 }
 
 signing {
-    def signingKey = System.getenv("signingKey")
-    def signingPassword = System.getenv("signingPassword")
+    def signingKey = base64Decode(getProperty("signingKey"))
+    def signingPassword = getProperty("signingPassword")
     useInMemoryPgpKeys(signingKey, signingPassword)
     sign publishing.publications.mavenJava
+}
+
+// ref: https://github.com/gradle/gradle/issues/15718#issuecomment-1282116044
+def base64Decode(encodedString){
+    if(encodedString != null) {
+        byte[] decoded = encodedString.decodeBase64()
+        String decode = new String(decoded)
+        return decode
+    }
+    return null
 }
