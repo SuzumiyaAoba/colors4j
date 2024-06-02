@@ -98,5 +98,5 @@ sonatypeCentralUpload {
     )
 
     signingKey = findProperty("signingKey")
-    signingPassword = findProperty("signingPassword")
+    signingKeyPassphrase = findProperty("signingPassword")
 }
