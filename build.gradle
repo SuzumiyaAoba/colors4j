@@ -4,8 +4,7 @@ plugins {
     id "com.diffplug.spotless" version "6.25.0"
 
     id 'maven-publish'
-    id 'signing'
-    id 'io.github.gradle-nexus.publish-plugin' version '2.0.0'
+    id 'cl.franciscosolis.sonatype-central-upload' version '1.0.3'
 }
 
 group = 'io.github.suzumiyaaoba'
@@ -44,19 +43,7 @@ spotless {
     }
 }
 
-nexusPublishing {
-    repositories {
-        sonatype {
-            //only for users registered in Sonatype after 24 Feb 2021
-            nexusUrl = uri("https://s01.oss.sonatype.org/service/local/")
-            snapshotRepositoryUrl = uri("https://s01.oss.sonatype.org/content/repositories/snapshots/")
-        }
-    }
-}
-
-
 publishing {
-
     publications {
         mavenJava(MavenPublication) {
             from components.java
@@ -64,7 +51,7 @@ publishing {
             pom {
                 groupId = project.group
                 name = 'colors4j'
-                description = ''
+                description = 'An implementation of the picocolors in Java.'
                 url = 'https://github.com/SuzumiyaAoba/colors4j'
                 packaging = 'jar'
 
@@ -94,19 +81,22 @@ publishing {
     }
 }
 
-signing {
-    def signingKey = base64Decode(getProperty("signingKey"))
-    def signingPassword = getProperty("signingPassword")
-    useInMemoryPgpKeys(signingKey, signingPassword)
-    sign publishing.publications.mavenJava
-}
+sonatypeCentralUpload {
+    dependsOn("jar", "sourcesJar", "javadocJar", "generatePomFileForMavenJavaPublication")
 
-// ref: https://github.com/gradle/gradle/issues/15718#issuecomment-1282116044
-def base64Decode(encodedString){
-    if(encodedString != null) {
-        byte[] decoded = encodedString.decodeBase64()
-        String decode = new String(decoded)
-        return decode
-    }
-    return null
+    username = findProperty("sonatypeUsername")
+    password = findProperty("sonatypePassword")
+
+    archives = files(
+            tasks.named("jar"),
+            tasks.named("sourcesJar"),
+            tasks.named("javadocJar")
+    )
+
+    pom = file(
+            tasks.named("generatePomFileForMavenJavaPublication").get().outputs.files.singleFile
+    )
+
+    signingKey = findProperty("signingKey")
+    signingPassword = findProperty("signingPassword")
 }
