@@ -1,12 +1,14 @@
 package com.github.suzumiyaaoba.colors4j;
 
 import java.util.function.UnaryOperator;
+import org.jspecify.annotations.NonNull;
 
 class Utils {
 
   private Utils() {}
 
-  static UnaryOperator<String> format(String open, String close, String replace) {
+  static @NonNull UnaryOperator<String> format(
+      @NonNull String open, @NonNull String close, @NonNull String replace) {
     return (String input) -> {
       final int index = input.indexOf(close, open.length());
 
@@ -16,7 +18,8 @@ class Utils {
     };
   }
 
-  static String replaceClose(String string, String close, String replace, int index) {
+  static @NonNull String replaceClose(
+      @NonNull String string, @NonNull String close, @NonNull String replace, int index) {
     final StringBuilder result = new StringBuilder();
     int cursor = 0;
 

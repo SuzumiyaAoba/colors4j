@@ -2,6 +2,8 @@ package com.github.suzumiyaaoba.colors4j;
 
 import java.util.function.BiFunction;
 import java.util.function.UnaryOperator;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
 
 /**
  * Colors class.
@@ -15,31 +17,31 @@ public class Colors {
 
   private boolean isColorSupported;
 
-  private UnaryOperator<String> reset;
-  private UnaryOperator<String> bold;
-  private UnaryOperator<String> dim;
-  private UnaryOperator<String> italic;
-  private UnaryOperator<String> underline;
-  private UnaryOperator<String> inverse;
-  private UnaryOperator<String> hidden;
-  private UnaryOperator<String> strikethrough;
-  private UnaryOperator<String> black;
-  private UnaryOperator<String> red;
-  private UnaryOperator<String> green;
-  private UnaryOperator<String> yellow;
-  private UnaryOperator<String> blue;
-  private UnaryOperator<String> magenta;
-  private UnaryOperator<String> cyan;
-  private UnaryOperator<String> white;
-  private UnaryOperator<String> gray;
-  private UnaryOperator<String> bgBlack;
-  private UnaryOperator<String> bgRed;
-  private UnaryOperator<String> bgGreen;
-  private UnaryOperator<String> bgYellow;
-  private UnaryOperator<String> bgBlue;
-  private UnaryOperator<String> bgMagenta;
-  private UnaryOperator<String> bgCyan;
-  private UnaryOperator<String> bgWhite;
+  private @Nullable UnaryOperator<String> reset;
+  private @Nullable UnaryOperator<String> bold;
+  private @Nullable UnaryOperator<String> dim;
+  private @Nullable UnaryOperator<String> italic;
+  private @Nullable UnaryOperator<String> underline;
+  private @Nullable UnaryOperator<String> inverse;
+  private @Nullable UnaryOperator<String> hidden;
+  private @Nullable UnaryOperator<String> strikethrough;
+  private @Nullable UnaryOperator<String> black;
+  private @Nullable UnaryOperator<String> red;
+  private @Nullable UnaryOperator<String> green;
+  private @Nullable UnaryOperator<String> yellow;
+  private @Nullable UnaryOperator<String> blue;
+  private @Nullable UnaryOperator<String> magenta;
+  private @Nullable UnaryOperator<String> cyan;
+  private @Nullable UnaryOperator<String> white;
+  private @Nullable UnaryOperator<String> gray;
+  private @Nullable UnaryOperator<String> bgBlack;
+  private @Nullable UnaryOperator<String> bgRed;
+  private @Nullable UnaryOperator<String> bgGreen;
+  private @Nullable UnaryOperator<String> bgYellow;
+  private @Nullable UnaryOperator<String> bgBlue;
+  private @Nullable UnaryOperator<String> bgMagenta;
+  private @Nullable UnaryOperator<String> bgCyan;
+  private @Nullable UnaryOperator<String> bgWhite;
 
   /**
    * Create a new Colors instance.
@@ -47,7 +49,7 @@ public class Colors {
    * @param isColorSupported true if color is supported, false otherwise
    * @return a new Colors instance
    */
-  public static Colors createColors(boolean isColorSupported) {
+  public static @NonNull Colors createColors(boolean isColorSupported) {
     BiFunction<String, String, UnaryOperator<String>> init =
         isColorSupported
             ? (open, close) -> Utils.format(open, close, open)
@@ -97,227 +99,227 @@ public class Colors {
     return this;
   }
 
-  public String reset(String input) {
+  public @NonNull String reset(@NonNull String input) {
     return reset.apply(input);
   }
 
-  Colors setReset(UnaryOperator<String> reset) {
+  @NonNull Colors setReset(@NonNull UnaryOperator<String> reset) {
     this.reset = reset;
     return this;
   }
 
-  public String bold(String input) {
+  public @NonNull String bold(@NonNull String input) {
     return bold.apply(input);
   }
 
-  Colors setBold(UnaryOperator<String> bold) {
+  @NonNull Colors setBold(@NonNull UnaryOperator<String> bold) {
     this.bold = bold;
     return this;
   }
 
-  public String dim(String input) {
+  public @NonNull String dim(@NonNull String input) {
     return dim.apply(input);
   }
 
-  Colors setDim(UnaryOperator<String> dim) {
+  @NonNull Colors setDim(@NonNull UnaryOperator<String> dim) {
     this.dim = dim;
     return this;
   }
 
-  public String italic(String input) {
+  public @NonNull String italic(@NonNull String input) {
     return italic.apply(input);
   }
 
-  Colors setItalic(UnaryOperator<String> italic) {
+  @NonNull Colors setItalic(@NonNull UnaryOperator<String> italic) {
     this.italic = italic;
     return this;
   }
 
-  public String underline(String input) {
+  public @NonNull String underline(@NonNull String input) {
     return underline.apply(input);
   }
 
-  Colors setUnderline(UnaryOperator<String> underline) {
+  @NonNull Colors setUnderline(@NonNull UnaryOperator<String> underline) {
     this.underline = underline;
     return this;
   }
 
-  public String inverse(String input) {
+  public @NonNull String inverse(@NonNull String input) {
     return inverse.apply(input);
   }
 
-  Colors setInverse(UnaryOperator<String> inverse) {
+  @NonNull Colors setInverse(@NonNull UnaryOperator<String> inverse) {
     this.inverse = inverse;
     return this;
   }
 
-  public String hidden(String input) {
+  public @NonNull String hidden(@NonNull String input) {
     return hidden.apply(input);
   }
 
-  Colors setHidden(UnaryOperator<String> hidden) {
+  @NonNull Colors setHidden(@NonNull UnaryOperator<String> hidden) {
     this.hidden = hidden;
     return this;
   }
 
-  public String strikethrough(String input) {
+  public @NonNull String strikethrough(@NonNull String input) {
     return strikethrough.apply(input);
   }
 
-  Colors setStrikethrough(UnaryOperator<String> strikethrough) {
+  @NonNull Colors setStrikethrough(@NonNull UnaryOperator<String> strikethrough) {
     this.strikethrough = strikethrough;
     return this;
   }
 
-  public String black(String input) {
+  public @NonNull String black(@NonNull String input) {
     return black.apply(input);
   }
 
-  Colors setBlack(UnaryOperator<String> black) {
+  @NonNull Colors setBlack(@NonNull UnaryOperator<String> black) {
     this.black = black;
     return this;
   }
 
-  public String red(String input) {
+  public @NonNull String red(@NonNull String input) {
     return red.apply(input);
   }
 
-  Colors setRed(UnaryOperator<String> red) {
+  @NonNull Colors setRed(@NonNull UnaryOperator<String> red) {
     this.red = red;
     return this;
   }
 
-  public String green(String input) {
+  public @NonNull String green(@NonNull String input) {
     return green.apply(input);
   }
 
-  Colors setGreen(UnaryOperator<String> green) {
+  @NonNull Colors setGreen(@NonNull UnaryOperator<String> green) {
     this.green = green;
     return this;
   }
 
-  public String yellow(String input) {
+  public @NonNull String yellow(@NonNull String input) {
     return yellow.apply(input);
   }
 
-  Colors setYellow(UnaryOperator<String> yellow) {
+  @NonNull Colors setYellow(@NonNull UnaryOperator<String> yellow) {
     this.yellow = yellow;
     return this;
   }
 
-  public String blue(String input) {
+  public @NonNull String blue(@NonNull String input) {
     return blue.apply(input);
   }
 
-  Colors setBlue(UnaryOperator<String> blue) {
+  @NonNull Colors setBlue(@NonNull UnaryOperator<String> blue) {
     this.blue = blue;
     return this;
   }
 
-  public String magenta(String input) {
+  public @NonNull String magenta(@NonNull String input) {
     return magenta.apply(input);
   }
 
-  Colors setMagenta(UnaryOperator<String> magenta) {
+  @NonNull Colors setMagenta(@NonNull UnaryOperator<String> magenta) {
     this.magenta = magenta;
     return this;
   }
 
-  public String cyan(String input) {
+  public @NonNull String cyan(@NonNull String input) {
     return cyan.apply(input);
   }
 
-  Colors setCyan(UnaryOperator<String> cyan) {
+  @NonNull Colors setCyan(@NonNull UnaryOperator<String> cyan) {
     this.cyan = cyan;
     return this;
   }
 
-  public String white(String input) {
+  public @NonNull String white(@NonNull String input) {
     return white.apply(input);
   }
 
-  Colors setWhite(UnaryOperator<String> white) {
+  @NonNull Colors setWhite(@NonNull UnaryOperator<String> white) {
     this.white = white;
     return this;
   }
 
-  public String gray(String input) {
+  public @NonNull String gray(@NonNull String input) {
     return gray.apply(input);
   }
 
-  Colors setGray(UnaryOperator<String> gray) {
+  @NonNull Colors setGray(@NonNull UnaryOperator<String> gray) {
     this.gray = gray;
     return this;
   }
 
-  public String bgBlack(String input) {
+  public @NonNull String bgBlack(@NonNull String input) {
     return bgBlack.apply(input);
   }
 
-  Colors setBgBlack(UnaryOperator<String> bgBlack) {
+  @NonNull Colors setBgBlack(@NonNull UnaryOperator<String> bgBlack) {
     this.bgBlack = bgBlack;
     return this;
   }
 
-  public String bgRed(String input) {
+  public @NonNull String bgRed(@NonNull String input) {
     return bgRed.apply(input);
   }
 
-  Colors setBgRed(UnaryOperator<String> bgRed) {
+  @NonNull Colors setBgRed(@NonNull UnaryOperator<String> bgRed) {
     this.bgRed = bgRed;
     return this;
   }
 
-  public String bgGreen(String input) {
+  public @NonNull String bgGreen(@NonNull String input) {
     return bgGreen.apply(input);
   }
 
-  Colors setBgGreen(UnaryOperator<String> bgGreen) {
+  @NonNull Colors setBgGreen(@NonNull UnaryOperator<String> bgGreen) {
     this.bgGreen = bgGreen;
     return this;
   }
 
-  public String bgYellow(String input) {
+  public @NonNull String bgYellow(@NonNull String input) {
     return bgYellow.apply(input);
   }
 
-  Colors setBgYellow(UnaryOperator<String> bgYellow) {
+  @NonNull Colors setBgYellow(@NonNull UnaryOperator<String> bgYellow) {
     this.bgYellow = bgYellow;
     return this;
   }
 
-  public String bgBlue(String input) {
+  public @NonNull String bgBlue(@NonNull String input) {
     return bgBlue.apply(input);
   }
 
-  Colors setBgBlue(UnaryOperator<String> bgBlue) {
+  @NonNull Colors setBgBlue(@NonNull UnaryOperator<String> bgBlue) {
     this.bgBlue = bgBlue;
     return this;
   }
 
-  public String bgMagenta(String input) {
+  public @NonNull String bgMagenta(@NonNull String input) {
     return bgMagenta.apply(input);
   }
 
-  Colors setBgMagenta(UnaryOperator<String> bgMagenta) {
+  @NonNull Colors setBgMagenta(@NonNull UnaryOperator<String> bgMagenta) {
     this.bgMagenta = bgMagenta;
     return this;
   }
 
-  public String bgCyan(String input) {
+  public @NonNull String bgCyan(@NonNull String input) {
     return bgCyan.apply(input);
   }
 
-  Colors setBgCyan(UnaryOperator<String> bgCyan) {
+  @NonNull Colors setBgCyan(@NonNull UnaryOperator<String> bgCyan) {
     this.bgCyan = bgCyan;
     return this;
   }
 
-  public String bgWhite(String input) {
+  public @NonNull String bgWhite(@NonNull String input) {
     return bgWhite.apply(input);
   }
 
-  Colors setBgWhite(UnaryOperator<String> bgWhite) {
+  @NonNull Colors setBgWhite(@NonNull UnaryOperator<String> bgWhite) {
     this.bgWhite = bgWhite;
     return this;
   }
