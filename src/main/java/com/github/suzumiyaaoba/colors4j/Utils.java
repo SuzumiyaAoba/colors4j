@@ -7,7 +7,8 @@ class Utils {
 
   private Utils() {}
 
-  static @NonNull UnaryOperator<String> format(@NonNull String open, @NonNull String close, @NonNull String replace) {
+  static @NonNull UnaryOperator<String> format(
+      @NonNull String open, @NonNull String close, @NonNull String replace) {
     return (String input) -> {
       final int index = input.indexOf(close, open.length());
 
@@ -17,7 +18,8 @@ class Utils {
     };
   }
 
-  static @NonNull String replaceClose(@NonNull String string, @NonNull String close, @NonNull String replace, int index) {
+  static @NonNull String replaceClose(
+      @NonNull String string, @NonNull String close, @NonNull String replace, int index) {
     final StringBuilder result = new StringBuilder();
     int cursor = 0;
 
