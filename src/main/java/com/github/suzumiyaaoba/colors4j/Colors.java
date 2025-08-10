@@ -180,8 +180,8 @@ public class Colors {
   }
 
   /**
-   * Applies inverse (reverse) formatting to the input string.
-   * This swaps the foreground and background colors.
+   * Applies inverse (reverse) formatting to the input string. This swaps the foreground and
+   * background colors.
    *
    * @param input the input string to format
    * @return the formatted string with inverse styling

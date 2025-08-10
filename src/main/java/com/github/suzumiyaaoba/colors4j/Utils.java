@@ -3,20 +3,16 @@ package com.github.suzumiyaaoba.colors4j;
 import java.util.function.UnaryOperator;
 import org.jspecify.annotations.NonNull;
 
-/**
- * Utility class for ANSI escape sequence formatting.
- */
+/** Utility class for ANSI escape sequence formatting. */
 class Utils {
 
-  /**
-   * Private constructor to prevent instantiation.
-   */
+  /** Private constructor to prevent instantiation. */
   private Utils() {}
 
   /**
-   * Creates a formatting function that wraps text with ANSI escape sequences.
-   * If the close sequence is found within the input, it replaces it with the replace sequence
-   * to maintain proper nesting of formatting.
+   * Creates a formatting function that wraps text with ANSI escape sequences. If the close sequence
+   * is found within the input, it replaces it with the replace sequence to maintain proper nesting
+   * of formatting.
    *
    * @param open the opening ANSI escape sequence
    * @param close the closing ANSI escape sequence
@@ -36,8 +32,8 @@ class Utils {
 
   /**
    * Replaces all occurrences of the close sequence with the replace sequence in the given string.
-   * This is used to handle nested formatting by replacing close sequences that would
-   * prematurely terminate the formatting.
+   * This is used to handle nested formatting by replacing close sequences that would prematurely
+   * terminate the formatting.
    *
    * @param string the input string to process
    * @param close the close sequence to replace

@@ -1,6 +1,6 @@
 package com.github.suzumiyaaoba.colors4j;
 
-import static org.junit.jupiter.params.provider.Arguments.*;
+import static org.junit.jupiter.params.provider.Arguments.arguments;
 
 import java.util.List;
 import org.assertj.core.api.SoftAssertions;
@@ -12,6 +12,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
+/** Test class for Colors functionality. */
 @ExtendWith(SoftAssertionsExtension.class)
 public class ColorsTest {
 
