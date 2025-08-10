@@ -126,4 +126,45 @@ public class ColorsTest {
         arguments(sut.bgCyan("bgCyan"), "bgCyan"),
         arguments(sut.bgWhite("bgWhite"), "bgWhite"));
   }
+
+  @Test
+  void nestedEscapeSequences() {
+    final var sut = Colors.createColors(true);
+
+    // Test input string that contains the close sequence within it
+    // This tests the replaceClose method functionality
+    String inputWithCloseSequence = "text\u001B[39mmore\u001B[39mtext";
+    String result = sut.red(inputWithCloseSequence);
+
+    // Expected: close sequences inside are replaced with the open sequence
+    // The replaceClose method replaces \u001B[39m with \u001B[31m inside the text
+    String expected = "\u001B[31mtext\u001B[39mmore\u001B[31mtext\u001B[39m";
+    softly.assertThat(result).isEqualTo(expected);
+  }
+
+  @Test
+  void multipleNestedEscapeSequences() {
+    final var sut = Colors.createColors(true);
+
+    // Test multiple close sequences in the input
+    String inputWithMultipleCloseSequences = "a\u001B[22mb\u001B[22mc\u001B[22md";
+    String result = sut.bold(inputWithMultipleCloseSequences);
+
+    // Expected: close sequences should be replaced with the bold open sequence
+    String expected = "\u001B[1ma\u001B[22mb\u001B[22m\u001B[1mc\u001B[22m\u001B[1md\u001B[22m";
+    softly.assertThat(result).isEqualTo(expected);
+  }
+
+  @Test
+  void noNestedEscapeSequences() {
+    final var sut = Colors.createColors(true);
+
+    // Test normal case with no close sequences in input
+    String normalInput = "normal text";
+    String result = sut.red(normalInput);
+
+    // Expected: just wrapped with open and close sequences
+    String expected = "\u001B[31mnormal text\u001B[39m";
+    softly.assertThat(result).isEqualTo(expected);
+  }
 }
