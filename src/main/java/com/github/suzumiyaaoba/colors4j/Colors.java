@@ -90,6 +90,11 @@ public class Colors {
         .setBgWhite(init.apply("\u001B[47m", "\u001B[49m"));
   }
 
+  /**
+   * Checks if color formatting is supported.
+   *
+   * @return true if color formatting is supported, false otherwise
+   */
   public boolean isColorSupported() {
     return isColorSupported;
   }
@@ -99,6 +104,12 @@ public class Colors {
     return this;
   }
 
+  /**
+   * Resets all text formatting to default.
+   *
+   * @param input the input string to format
+   * @return the formatted string with reset formatting
+   */
   public @NonNull String reset(@NonNull String input) {
     return reset.apply(input);
   }
@@ -108,6 +119,12 @@ public class Colors {
     return this;
   }
 
+  /**
+   * Applies bold formatting to the input string.
+   *
+   * @param input the input string to format
+   * @return the formatted string with bold styling
+   */
   public @NonNull String bold(@NonNull String input) {
     return bold.apply(input);
   }
@@ -117,6 +134,12 @@ public class Colors {
     return this;
   }
 
+  /**
+   * Applies dim (faint) formatting to the input string.
+   *
+   * @param input the input string to format
+   * @return the formatted string with dim styling
+   */
   public @NonNull String dim(@NonNull String input) {
     return dim.apply(input);
   }
@@ -126,6 +149,12 @@ public class Colors {
     return this;
   }
 
+  /**
+   * Applies italic formatting to the input string.
+   *
+   * @param input the input string to format
+   * @return the formatted string with italic styling
+   */
   public @NonNull String italic(@NonNull String input) {
     return italic.apply(input);
   }
@@ -135,6 +164,12 @@ public class Colors {
     return this;
   }
 
+  /**
+   * Applies underline formatting to the input string.
+   *
+   * @param input the input string to format
+   * @return the formatted string with underline styling
+   */
   public @NonNull String underline(@NonNull String input) {
     return underline.apply(input);
   }
@@ -144,6 +179,13 @@ public class Colors {
     return this;
   }
 
+  /**
+   * Applies inverse (reverse) formatting to the input string.
+   * This swaps the foreground and background colors.
+   *
+   * @param input the input string to format
+   * @return the formatted string with inverse styling
+   */
   public @NonNull String inverse(@NonNull String input) {
     return inverse.apply(input);
   }
@@ -153,6 +195,12 @@ public class Colors {
     return this;
   }
 
+  /**
+   * Applies hidden (invisible) formatting to the input string.
+   *
+   * @param input the input string to format
+   * @return the formatted string with hidden styling
+   */
   public @NonNull String hidden(@NonNull String input) {
     return hidden.apply(input);
   }
@@ -162,6 +210,12 @@ public class Colors {
     return this;
   }
 
+  /**
+   * Applies strikethrough formatting to the input string.
+   *
+   * @param input the input string to format
+   * @return the formatted string with strikethrough styling
+   */
   public @NonNull String strikethrough(@NonNull String input) {
     return strikethrough.apply(input);
   }
@@ -171,6 +225,12 @@ public class Colors {
     return this;
   }
 
+  /**
+   * Applies black foreground color to the input string.
+   *
+   * @param input the input string to format
+   * @return the formatted string with black color
+   */
   public @NonNull String black(@NonNull String input) {
     return black.apply(input);
   }
@@ -180,6 +240,12 @@ public class Colors {
     return this;
   }
 
+  /**
+   * Applies red foreground color to the input string.
+   *
+   * @param input the input string to format
+   * @return the formatted string with red color
+   */
   public @NonNull String red(@NonNull String input) {
     return red.apply(input);
   }
@@ -189,6 +255,12 @@ public class Colors {
     return this;
   }
 
+  /**
+   * Applies green foreground color to the input string.
+   *
+   * @param input the input string to format
+   * @return the formatted string with green color
+   */
   public @NonNull String green(@NonNull String input) {
     return green.apply(input);
   }
@@ -198,6 +270,12 @@ public class Colors {
     return this;
   }
 
+  /**
+   * Applies yellow foreground color to the input string.
+   *
+   * @param input the input string to format
+   * @return the formatted string with yellow color
+   */
   public @NonNull String yellow(@NonNull String input) {
     return yellow.apply(input);
   }
@@ -207,6 +285,12 @@ public class Colors {
     return this;
   }
 
+  /**
+   * Applies blue foreground color to the input string.
+   *
+   * @param input the input string to format
+   * @return the formatted string with blue color
+   */
   public @NonNull String blue(@NonNull String input) {
     return blue.apply(input);
   }
@@ -216,6 +300,12 @@ public class Colors {
     return this;
   }
 
+  /**
+   * Applies magenta foreground color to the input string.
+   *
+   * @param input the input string to format
+   * @return the formatted string with magenta color
+   */
   public @NonNull String magenta(@NonNull String input) {
     return magenta.apply(input);
   }
@@ -225,6 +315,12 @@ public class Colors {
     return this;
   }
 
+  /**
+   * Applies cyan foreground color to the input string.
+   *
+   * @param input the input string to format
+   * @return the formatted string with cyan color
+   */
   public @NonNull String cyan(@NonNull String input) {
     return cyan.apply(input);
   }
@@ -234,6 +330,12 @@ public class Colors {
     return this;
   }
 
+  /**
+   * Applies white foreground color to the input string.
+   *
+   * @param input the input string to format
+   * @return the formatted string with white color
+   */
   public @NonNull String white(@NonNull String input) {
     return white.apply(input);
   }
@@ -243,6 +345,12 @@ public class Colors {
     return this;
   }
 
+  /**
+   * Applies gray foreground color to the input string.
+   *
+   * @param input the input string to format
+   * @return the formatted string with gray color
+   */
   public @NonNull String gray(@NonNull String input) {
     return gray.apply(input);
   }
@@ -252,6 +360,12 @@ public class Colors {
     return this;
   }
 
+  /**
+   * Applies black background color to the input string.
+   *
+   * @param input the input string to format
+   * @return the formatted string with black background
+   */
   public @NonNull String bgBlack(@NonNull String input) {
     return bgBlack.apply(input);
   }
@@ -261,6 +375,12 @@ public class Colors {
     return this;
   }
 
+  /**
+   * Applies red background color to the input string.
+   *
+   * @param input the input string to format
+   * @return the formatted string with red background
+   */
   public @NonNull String bgRed(@NonNull String input) {
     return bgRed.apply(input);
   }
@@ -270,6 +390,12 @@ public class Colors {
     return this;
   }
 
+  /**
+   * Applies green background color to the input string.
+   *
+   * @param input the input string to format
+   * @return the formatted string with green background
+   */
   public @NonNull String bgGreen(@NonNull String input) {
     return bgGreen.apply(input);
   }
@@ -279,6 +405,12 @@ public class Colors {
     return this;
   }
 
+  /**
+   * Applies yellow background color to the input string.
+   *
+   * @param input the input string to format
+   * @return the formatted string with yellow background
+   */
   public @NonNull String bgYellow(@NonNull String input) {
     return bgYellow.apply(input);
   }
@@ -288,6 +420,12 @@ public class Colors {
     return this;
   }
 
+  /**
+   * Applies blue background color to the input string.
+   *
+   * @param input the input string to format
+   * @return the formatted string with blue background
+   */
   public @NonNull String bgBlue(@NonNull String input) {
     return bgBlue.apply(input);
   }
@@ -297,6 +435,12 @@ public class Colors {
     return this;
   }
 
+  /**
+   * Applies magenta background color to the input string.
+   *
+   * @param input the input string to format
+   * @return the formatted string with magenta background
+   */
   public @NonNull String bgMagenta(@NonNull String input) {
     return bgMagenta.apply(input);
   }
@@ -306,6 +450,12 @@ public class Colors {
     return this;
   }
 
+  /**
+   * Applies cyan background color to the input string.
+   *
+   * @param input the input string to format
+   * @return the formatted string with cyan background
+   */
   public @NonNull String bgCyan(@NonNull String input) {
     return bgCyan.apply(input);
   }
@@ -315,6 +465,12 @@ public class Colors {
     return this;
   }
 
+  /**
+   * Applies white background color to the input string.
+   *
+   * @param input the input string to format
+   * @return the formatted string with white background
+   */
   public @NonNull String bgWhite(@NonNull String input) {
     return bgWhite.apply(input);
   }
